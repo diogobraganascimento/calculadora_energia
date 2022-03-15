@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<br><br>
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header text-center">
+                Estimativa de gasto da conta de energia
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Resultado obtido em {{data}}</h5>
+                <p class="card-text">
+                    Estimativa de gasto: R$ {{resultado}}
+                </p>
+                <p class="card-text text-center">-------------------- Base de calulos --------------------</p>
+                <p class="lh-1">
+                    Preço unitário: R${{valor_energia}}
+                    <br>Bandeira Verde: R$0,00
+                    <br>Bandeira Amarela: R$1,87 a cada 100kWh
+                    <br>Bandeira Vermelha: R$3,97 a cada 100kWh
+                </p>
+                <p class="lh-1"></p>
+              <a href="{{url_for('index')}}" class="btn btn-primary">Calcular Novamente</a>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    ?
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Informe</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                No calculo não foi incluído o valor da tarifa de iluminação pública.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
