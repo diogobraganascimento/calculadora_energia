@@ -1,49 +1,17 @@
 {% extends 'index.html' %}
 {% block content %}
 
+<h1 class="titulo-principal">Calculadora de energia</h1>
 
-<div class="row h-100 justify-content-center align-items-center">
-    <div class="col-md-12">
-        <h1 class="text-center text-light">Calculadora de energia</h1>
-    </div>
+<form method="post">
+    <label for="medicao_atual">Mediação Atual</label>
+    <input type="number" id="medicao_atual" name="medicao_atual" placeholder="Informe a medição atual" required>
 
-    <form method="post" class="col-md-5">
-        <div class="mb-3">
-            <label for="medicao_atual" class="form-label text-light">Mediação Atual</label>
-            <input type="number" class="form-control" id="medicao_atual" name="medicao_atual" required>
-            <div id="medicao_atual_help" class="form-text text-light opacity-50">
-                Informe a medição atual do relogio
-            </div>
-        </div>
-        <div class="mb-3">
-            <label for="medicao_anterior" class="form-label text-light">Medição Anterior</label>
-            <input type="number" class="form-control" id="medicao_anterior" name="medicao_anterior" required>
-            <div id="medicao_anterior_help" class="form-text text-light opacity-50">
-                Informe a medição anterior informada na conta de luz
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Calcular</button>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            ?
-        </button>
-    </form>
-</div>
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Informe</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Todos os calculos feitos são uma estimativa, podendo haver variações dependendo da localidade
-                e/ou reajuste por parte da operadora.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+    <label for="medicao_anterior">Medição Anterior</label>
+    <input type="number" id="medicao_anterior" name="medicao_anterior" placeholder="Informe a medição anterior"
+        required>
+
+    <button type="submit">Calcular</button>
+</form>
 
 {% endblock content %}

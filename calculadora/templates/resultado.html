@@ -1,15 +1,40 @@
 {% extends 'index.html' %}
 {% block content %}
 
+<h1 class="titulo-principal">Estimativa de gasto da conta de energia</h1>
+
+<ul>
+    <li>
+        <h2>Resultado obtido em {{data}}</h2>
+        <p class="resultado">Estimativa de gasto: R$ {{resultado}}</p>
+        <p class="resultado">
+            Preço unitário: R${{valor_energia}}
+            <br>Bandeira Verde: R$0,00
+            <br>Bandeira Amarela: R$1,87 a cada 100kWh
+            <br>Bandeira Vermelha: R$3,97 a cada 100kWh
+        </p>
+        <p class="resultado">----- Base de calulos ----- </p>
+        <p class="resultado">
+            Preço unitário: R${{valor_energia}}
+            <br>Bandeira Verde: R$0,00
+            <br>Bandeira Amarela: R$1,87 a cada 100kWh
+            <br>Bandeira Vermelha: R$3,97 a cada 100kWh
+        </p>
+    </li>
+</ul>
+
+
+{% endblock content %}
+
 <br><br>
 <div class="row h-100 justify-content-center align-items-center">
     <div class="col-md-5">
         <div class="card">
             <div class="card-header text-center">
-                Estimativa de gasto da conta de energia
+
             </div>
             <div class="card-body">
-              <h5 class="card-title">Resultado obtido em {{data}}</h5>
+                <h5 class="card-title">Resultado obtido em {{data}}</h5>
                 <p class="card-text">
                     Estimativa de gasto: R$ {{resultado}}
                 </p>
@@ -21,7 +46,7 @@
                     <br>Bandeira Vermelha: R$3,97 a cada 100kWh
                 </p>
                 <p class="lh-1"></p>
-              <a href="{{url_for('index')}}" class="btn btn-primary">Calcular Novamente</a>
+                <a href="{{url_for('index')}}" class="btn btn-primary">Calcular Novamente</a>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     ?
                 </button>
@@ -30,7 +55,8 @@
     </div>
 </div>
 
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -46,5 +72,3 @@
         </div>
     </div>
 </div>
-
-{% endblock content %}
